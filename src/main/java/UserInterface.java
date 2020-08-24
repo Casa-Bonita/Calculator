@@ -164,13 +164,23 @@ public class UserInterface {
 
         JButton buttonDeleteLast = new JButton("<-");
         buttonDeleteLast.setFont(font);
-//        buttonDeleteLast.addActionListener(new ActionListener(){
-//            @Override
-//            public void actionPerformed(ActionEvent actionEvent){
-//                bDeleteLast = ((JButton)actionEvent.getSource()).getText();
-//                textField.setText(bDeleteLast);
-//            }
-//        });
+        buttonDeleteLast.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent){
+                if (number1 != 0 & number2 == 0){
+                    String temp = Integer.toString(number1);
+                    temp = temp.substring(0, temp.length() - 1);
+                    textField.setText(temp);
+                    number1 = Integer.valueOf(temp);
+                }
+                else{
+                    String temp = Integer.toString(number2);
+                    temp = temp.substring(0, temp.length() - 1);
+                    textField.setText(temp);
+                    number2 = Integer.valueOf(temp);
+                }
+            }
+        });
 
 
         JButton buttonPlusMinus = new JButton("-+");
