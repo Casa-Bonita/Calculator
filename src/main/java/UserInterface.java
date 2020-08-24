@@ -8,10 +8,7 @@ import java.awt.event.*;
 public class UserInterface {
 
     private Dimension dimensionFrame;
-    String tempOperation = "";
     String operationType = "";
-    int temp1 = 0;
-    int temp2 = 0;
     int number1 = 0;
     int number2 = 0;
     String result = "";
@@ -93,9 +90,6 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent arg0)
             {
-                number1 = Integer.valueOf(temp1);
-                number2 = Integer.valueOf(temp2);
-                operationType = tempOperation;
                 try{
                     Operations operations = new Operations();
                     result = String.valueOf(operations.calculate(number1, operationType, number2));
@@ -116,10 +110,7 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 textField.setText("");
-                tempOperation = "";
                 operationType = "";
-                temp1 = 0;
-                temp2 = 0;
                 number1 = 0;
                 number2 = 0;
                 result = "";
@@ -133,7 +124,7 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 textField.setText("");
-                tempOperation = "/";
+                operationType = "/";
             }
         });
 
@@ -144,7 +135,7 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 textField.setText("");
-                tempOperation = "*";
+                operationType = "*";
             }
         });
 
@@ -155,7 +146,7 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 textField.setText("");
-                tempOperation = "-";
+                operationType = "-";
             }
         });
 
@@ -166,7 +157,7 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 textField.setText("");
-                tempOperation = "+";
+                operationType = "+";
             }
         });
 
@@ -203,11 +194,11 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 textField.setText(textField.getText() + 0);
-                if (temp1 == 0){
-                    temp1 = Integer.valueOf(textField.getText());
+                if (number1 == 0){
+                    number1 = Integer.valueOf(textField.getText());
                 }
                 else{
-                    temp2 = Integer.valueOf(textField.getText());
+                    number2 = Integer.valueOf(textField.getText());
                 }
             }
         });
@@ -219,11 +210,11 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 textField.setText(textField.getText() + 1);
-                if (temp1 == 0){
-                    temp1 = Integer.valueOf(textField.getText());
+                if (number1 == 0){
+                    number1 = Integer.valueOf(textField.getText());
                 }
                 else{
-                    temp2 = Integer.valueOf(textField.getText());
+                    number2 = Integer.valueOf(textField.getText());
                 }
             }
         });
@@ -235,11 +226,11 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 textField.setText(textField.getText() + 2);
-                if (temp1 == 0){
-                    temp1 = Integer.valueOf(textField.getText());
+                if (number1 == 0){
+                    number1 = Integer.valueOf(textField.getText());
                 }
                 else{
-                    temp2 = Integer.valueOf(textField.getText());
+                    number2 = Integer.valueOf(textField.getText());
                 }
             }
         });
@@ -251,11 +242,11 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 textField.setText(textField.getText() + 3);
-                if (temp1 == 0){
-                    temp1 = Integer.valueOf(textField.getText());
+                if (number1 == 0){
+                    number1 = Integer.valueOf(textField.getText());
                 }
                 else{
-                    temp2 = Integer.valueOf(textField.getText());
+                    number2 = Integer.valueOf(textField.getText());
                 }
             }
         });
@@ -267,11 +258,11 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 textField.setText(textField.getText() + 4);
-                if (temp1 == 0){
-                    temp1 = Integer.valueOf(textField.getText());
+                if (number1 == 0){
+                    number1 = Integer.valueOf(textField.getText());
                 }
                 else{
-                    temp2 = Integer.valueOf(textField.getText());
+                    number2 = Integer.valueOf(textField.getText());
                 }
             }
         });
@@ -283,11 +274,11 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 textField.setText(textField.getText() + 5);
-                if (temp1 == 0){
-                    temp1 = Integer.valueOf(textField.getText());
+                if (number1 == 0){
+                    number1 = Integer.valueOf(textField.getText());
                 }
                 else{
-                    temp2 = Integer.valueOf(textField.getText());
+                    number2 = Integer.valueOf(textField.getText());
                 }
             }
         });
@@ -299,11 +290,11 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 textField.setText(textField.getText() + 6);
-                if (temp1 == 0){
-                    temp1 = Integer.valueOf(textField.getText());
+                if (number1 == 0){
+                    number1 = Integer.valueOf(textField.getText());
                 }
                 else{
-                    temp2 = Integer.valueOf(textField.getText());
+                    number2 = Integer.valueOf(textField.getText());
                 }
             }
         });
@@ -315,11 +306,11 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 textField.setText(textField.getText() + 7);
-                if (temp1 == 0){
-                    temp1 = Integer.valueOf(textField.getText());
+                if (number1 == 0){
+                    number1 = Integer.valueOf(textField.getText());
                 }
                 else{
-                    temp2 = Integer.valueOf(textField.getText());
+                    number2 = Integer.valueOf(textField.getText());
                 }
             }
         });
@@ -331,11 +322,11 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 textField.setText(textField.getText() + 8);
-                if (temp1 == 0){
-                    temp1 = Integer.valueOf(textField.getText());
+                if (number1 == 0){
+                    number1 = Integer.valueOf(textField.getText());
                 }
                 else{
-                    temp2 = Integer.valueOf(textField.getText());
+                    number2 = Integer.valueOf(textField.getText());
                 }
             }
         });
@@ -347,11 +338,11 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 textField.setText(textField.getText() + 9);
-                if (temp1 == 0){
-                    temp1 = Integer.valueOf(textField.getText());
+                if (number1 == 0){
+                    number1 = Integer.valueOf(textField.getText());
                 }
                 else{
-                    temp2 = Integer.valueOf(textField.getText());
+                    number2 = Integer.valueOf(textField.getText());
                 }
             }
         });
