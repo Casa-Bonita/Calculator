@@ -175,7 +175,21 @@ public class UserInterface {
 
         JButton buttonPlusMinus = new JButton("-+");
         buttonPlusMinus.setFont(font);
-//        buttonPlusMinus.addActionListener(actionListener);
+        buttonPlusMinus.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent){
+                if (number1 != 0 & number2 == 0){
+                    number1 = -1 * number1;
+                    String temp = Integer.toString(number1);
+                    textField.setText(temp);
+                }
+                else{
+                    number2 = -1 * number2;
+                    String temp = Integer.toString(number2);
+                    textField.setText(temp);
+                }
+            }
+        });
 
 
         JButton buttonDigit = new JButton(",");
