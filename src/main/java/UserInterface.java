@@ -14,6 +14,8 @@ public class UserInterface {
     String result = "";
     public JTextField textField = null;
 
+    Operations operations = new Operations();
+
     public UserInterface(Dimension dimensionFrame) {
         this.dimensionFrame = dimensionFrame;
     }
@@ -91,12 +93,11 @@ public class UserInterface {
             public void actionPerformed(ActionEvent arg0)
             {
                 try{
-                    Operations operations = new Operations();
                     result = String.valueOf(operations.calculate(number1, operationType, number2));
                     textField.setText(result);
                 }
                 catch(ArithmeticException ex){
-                    System.out.println("Can not divide by zero ");
+                    System.out.println("Can't divide by zero ");
                     ex.printStackTrace();
                     textField.setText("ERROR");
                 }
@@ -140,7 +141,7 @@ public class UserInterface {
         });
 
 
-        JButton buttonSubtraction = new JButton("-");
+        JButton buttonSubtraction = new JButton("–");
         buttonSubtraction.setFont(font);
         buttonSubtraction.addActionListener(new ActionListener(){
             @Override
@@ -217,6 +218,13 @@ public class UserInterface {
         button0.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent){
+                if(textField.getText().equals("ERROR")){
+                    textField.setText("");
+                    operationType = "";
+                    number1 = 0;
+                    number2 = 0;
+                    result = "";
+                }
                 textField.setText(textField.getText() + 0);
                 if (number1 == 0){
                     number1 = Integer.valueOf(textField.getText());
@@ -233,6 +241,13 @@ public class UserInterface {
         button1.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent){
+                if(textField.getText().equals("ERROR")){
+                    textField.setText("");
+                    operationType = "";
+                    number1 = 0;
+                    number2 = 0;
+                    result = "";
+                }
                 textField.setText(textField.getText() + 1);
                 if (number1 == 0){
                     number1 = Integer.valueOf(textField.getText());
@@ -249,6 +264,13 @@ public class UserInterface {
         button2.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent){
+                if(textField.getText().equals("ERROR")){
+                    textField.setText("");
+                    operationType = "";
+                    number1 = 0;
+                    number2 = 0;
+                    result = "";
+                }
                 textField.setText(textField.getText() + 2);
                 if (number1 == 0){
                     number1 = Integer.valueOf(textField.getText());
@@ -265,6 +287,13 @@ public class UserInterface {
         button3.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent){
+                if(textField.getText().equals("ERROR")){
+                    textField.setText("");
+                    operationType = "";
+                    number1 = 0;
+                    number2 = 0;
+                    result = "";
+                }
                 textField.setText(textField.getText() + 3);
                 if (number1 == 0){
                     number1 = Integer.valueOf(textField.getText());
@@ -281,6 +310,13 @@ public class UserInterface {
         button4.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent){
+                if(textField.getText().equals("ERROR")){
+                    textField.setText("");
+                    operationType = "";
+                    number1 = 0;
+                    number2 = 0;
+                    result = "";
+                }
                 textField.setText(textField.getText() + 4);
                 if (number1 == 0){
                     number1 = Integer.valueOf(textField.getText());
@@ -297,6 +333,13 @@ public class UserInterface {
         button5.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent){
+                if(textField.getText().equals("ERROR")){
+                    textField.setText("");
+                    operationType = "";
+                    number1 = 0;
+                    number2 = 0;
+                    result = "";
+                }
                 textField.setText(textField.getText() + 5);
                 if (number1 == 0){
                     number1 = Integer.valueOf(textField.getText());
@@ -313,6 +356,13 @@ public class UserInterface {
         button6.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent){
+                if(textField.getText().equals("ERROR")){
+                    textField.setText("");
+                    operationType = "";
+                    number1 = 0;
+                    number2 = 0;
+                    result = "";
+                }
                 textField.setText(textField.getText() + 6);
                 if (number1 == 0){
                     number1 = Integer.valueOf(textField.getText());
@@ -329,6 +379,13 @@ public class UserInterface {
         button7.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent){
+                if(textField.getText().equals("ERROR")){
+                    textField.setText("");
+                    operationType = "";
+                    number1 = 0;
+                    number2 = 0;
+                    result = "";
+                }
                 textField.setText(textField.getText() + 7);
                 if (number1 == 0){
                     number1 = Integer.valueOf(textField.getText());
@@ -345,6 +402,13 @@ public class UserInterface {
         button8.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent){
+                if(textField.getText().equals("ERROR")){
+                    textField.setText("");
+                    operationType = "";
+                    number1 = 0;
+                    number2 = 0;
+                    result = "";
+                }
                 textField.setText(textField.getText() + 8);
                 if (number1 == 0){
                     number1 = Integer.valueOf(textField.getText());
@@ -361,6 +425,13 @@ public class UserInterface {
         button9.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent){
+                if(textField.getText().equals("ERROR")){
+                    textField.setText("");
+                    operationType = "";
+                    number1 = 0;
+                    number2 = 0;
+                    result = "";
+                }
                 textField.setText(textField.getText() + 9);
                 if (number1 == 0){
                     number1 = Integer.valueOf(textField.getText());
