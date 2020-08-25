@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.Font;
 import java.awt.event.*;
+import java.util.List;
+import java.util.ArrayList;
 
 public class UserInterface {
 
@@ -13,6 +15,7 @@ public class UserInterface {
     int number2 = 0;
     String result = "";
     public JTextField textField = null;
+    List<String> listData = new ArrayList<>();
 
     Operations operations = new Operations();
 
@@ -93,11 +96,11 @@ public class UserInterface {
             public void actionPerformed(ActionEvent arg0)
             {
                 try{
-                    result = String.valueOf(operations.calculate(number1, operationType, number2));
+                    result = String.valueOf(operations.calculate(listData, operationType));
                     textField.setText(result);
                 }
                 catch(ArithmeticException ex){
-                    System.out.println("Can't divide by zero ");
+                    System.out.println("Can not divide by zero ");
                     ex.printStackTrace();
                     textField.setText("ERROR");
                 }
@@ -110,11 +113,7 @@ public class UserInterface {
         buttonClearAll.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent){
-                textField.setText("");
-                operationType = "";
-                number1 = 0;
-                number2 = 0;
-                result = "";
+                clearAll();
             }
         });
 
@@ -126,6 +125,7 @@ public class UserInterface {
             public void actionPerformed(ActionEvent actionEvent){
                 textField.setText("");
                 operationType = "/";
+                listData.add(operationType);
             }
         });
 
@@ -137,6 +137,7 @@ public class UserInterface {
             public void actionPerformed(ActionEvent actionEvent){
                 textField.setText("");
                 operationType = "*";
+                listData.add(operationType);
             }
         });
 
@@ -148,6 +149,7 @@ public class UserInterface {
             public void actionPerformed(ActionEvent actionEvent){
                 textField.setText("");
                 operationType = "-";
+                listData.add(operationType);
             }
         });
 
@@ -159,6 +161,7 @@ public class UserInterface {
             public void actionPerformed(ActionEvent actionEvent){
                 textField.setText("");
                 operationType = "+";
+                listData.add(operationType);
             }
         });
 
@@ -219,19 +222,10 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 if(textField.getText().equals("ERROR")){
-                    textField.setText("");
-                    operationType = "";
-                    number1 = 0;
-                    number2 = 0;
-                    result = "";
+                    clearAll();
                 }
                 textField.setText(textField.getText() + 0);
-                if (number1 == 0){
-                    number1 = Integer.valueOf(textField.getText());
-                }
-                else{
-                    number2 = Integer.valueOf(textField.getText());
-                }
+                listData.add(textField.getText());
             }
         });
 
@@ -242,19 +236,10 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 if(textField.getText().equals("ERROR")){
-                    textField.setText("");
-                    operationType = "";
-                    number1 = 0;
-                    number2 = 0;
-                    result = "";
+                    clearAll();
                 }
                 textField.setText(textField.getText() + 1);
-                if (number1 == 0){
-                    number1 = Integer.valueOf(textField.getText());
-                }
-                else{
-                    number2 = Integer.valueOf(textField.getText());
-                }
+                listData.add(textField.getText());
             }
         });
 
@@ -265,19 +250,10 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 if(textField.getText().equals("ERROR")){
-                    textField.setText("");
-                    operationType = "";
-                    number1 = 0;
-                    number2 = 0;
-                    result = "";
+                    clearAll();
                 }
                 textField.setText(textField.getText() + 2);
-                if (number1 == 0){
-                    number1 = Integer.valueOf(textField.getText());
-                }
-                else{
-                    number2 = Integer.valueOf(textField.getText());
-                }
+                listData.add(textField.getText());
             }
         });
 
@@ -288,19 +264,10 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 if(textField.getText().equals("ERROR")){
-                    textField.setText("");
-                    operationType = "";
-                    number1 = 0;
-                    number2 = 0;
-                    result = "";
+                    clearAll();
                 }
                 textField.setText(textField.getText() + 3);
-                if (number1 == 0){
-                    number1 = Integer.valueOf(textField.getText());
-                }
-                else{
-                    number2 = Integer.valueOf(textField.getText());
-                }
+                listData.add(textField.getText());
             }
         });
 
@@ -311,19 +278,10 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 if(textField.getText().equals("ERROR")){
-                    textField.setText("");
-                    operationType = "";
-                    number1 = 0;
-                    number2 = 0;
-                    result = "";
+                    clearAll();
                 }
                 textField.setText(textField.getText() + 4);
-                if (number1 == 0){
-                    number1 = Integer.valueOf(textField.getText());
-                }
-                else{
-                    number2 = Integer.valueOf(textField.getText());
-                }
+                listData.add(textField.getText());
             }
         });
 
@@ -334,19 +292,10 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 if(textField.getText().equals("ERROR")){
-                    textField.setText("");
-                    operationType = "";
-                    number1 = 0;
-                    number2 = 0;
-                    result = "";
+                    clearAll();
                 }
                 textField.setText(textField.getText() + 5);
-                if (number1 == 0){
-                    number1 = Integer.valueOf(textField.getText());
-                }
-                else{
-                    number2 = Integer.valueOf(textField.getText());
-                }
+                listData.add(textField.getText());
             }
         });
 
@@ -357,19 +306,10 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 if(textField.getText().equals("ERROR")){
-                    textField.setText("");
-                    operationType = "";
-                    number1 = 0;
-                    number2 = 0;
-                    result = "";
+                    clearAll();
                 }
                 textField.setText(textField.getText() + 6);
-                if (number1 == 0){
-                    number1 = Integer.valueOf(textField.getText());
-                }
-                else{
-                    number2 = Integer.valueOf(textField.getText());
-                }
+                listData.add(textField.getText());
             }
         });
 
@@ -380,19 +320,10 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 if(textField.getText().equals("ERROR")){
-                    textField.setText("");
-                    operationType = "";
-                    number1 = 0;
-                    number2 = 0;
-                    result = "";
+                    clearAll();
                 }
                 textField.setText(textField.getText() + 7);
-                if (number1 == 0){
-                    number1 = Integer.valueOf(textField.getText());
-                }
-                else{
-                    number2 = Integer.valueOf(textField.getText());
-                }
+                listData.add(textField.getText());
             }
         });
 
@@ -403,19 +334,10 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 if(textField.getText().equals("ERROR")){
-                    textField.setText("");
-                    operationType = "";
-                    number1 = 0;
-                    number2 = 0;
-                    result = "";
+                    clearAll();
                 }
                 textField.setText(textField.getText() + 8);
-                if (number1 == 0){
-                    number1 = Integer.valueOf(textField.getText());
-                }
-                else{
-                    number2 = Integer.valueOf(textField.getText());
-                }
+                listData.add(textField.getText());
             }
         });
 
@@ -426,19 +348,10 @@ public class UserInterface {
             @Override
             public void actionPerformed(ActionEvent actionEvent){
                 if(textField.getText().equals("ERROR")){
-                    textField.setText("");
-                    operationType = "";
-                    number1 = 0;
-                    number2 = 0;
-                    result = "";
+                    clearAll();
                 }
                 textField.setText(textField.getText() + 9);
-                if (number1 == 0){
-                    number1 = Integer.valueOf(textField.getText());
-                }
-                else{
-                    number2 = Integer.valueOf(textField.getText());
-                }
+                listData.add(textField.getText());
             }
         });
 
@@ -471,5 +384,16 @@ public class UserInterface {
         frame.setVisible(true);
 
 
+    }
+
+    public void clearAll (){
+        textField.setText("");
+        operationType = "";
+        number1 = 0;
+        number2 = 0;
+        result = "";
+        for (int i = 0; i < listData.size(); i++) {
+            listData.remove(i);
+        }
     }
 }
