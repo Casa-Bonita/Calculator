@@ -9,7 +9,7 @@ public class Operations {
     public String calculate(List<String> listData, String operationType){
 
         for (int i = 0; i < listData.size(); i++) {
-            System.out.println(listData.get(i));
+            //System.out.println(listData.get(i)); - проверка данных в списке
             if(listData.get(i).equals(operationType)){
                 splitter = i;
             }

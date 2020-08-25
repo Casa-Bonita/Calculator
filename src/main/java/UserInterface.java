@@ -79,9 +79,63 @@ public class UserInterface {
         JMenuItem licenseItem = new JMenuItem("License");
         infoMenu.add(licenseItem);
         infoMenu.addSeparator();
+        licenseItem.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent){
+                Dimension dimensionTextFrame = new Dimension(500, 500);
+                JFrame frame = new JFrame("Лицензионное соглашение");
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(new Dimension(dimensionTextFrame));
+                frame.setMinimumSize(new Dimension(dimensionTextFrame));
+                frame.setMaximumSize(new Dimension(dimensionTextFrame));
+                frame.setPreferredSize(new Dimension(dimensionTextFrame));
+                JTextArea textArea = new JTextArea
+                        ("Здесь располагается текст лицензионного соглашения, Здесь располагается текст лицензионного соглашения," +
+                        " Здесь располагается текст лицензионного соглашения, Здесь располагается текст лицензионного соглашения, " +
+                                "Здесь располагается текст лицензионного соглашения, Здесь располагается текст лицензионного соглашения," +
+                                " Здесь располагается текст лицензионного соглашения, Здесь располагается текст лицензионного соглашения,", 11, 18);
+                textArea.setFont(font);
+                textArea.setTabSize(10);
+                textArea.setLineWrap(true);
+                textArea.setWrapStyleWord(true);
+                JPanel textAreaPanel = new JPanel();
+                textAreaPanel.add(textArea);
+                textAreaPanel.add(new JScrollPane(textArea));
+                textAreaPanel.setSize(480,480);
+                frame.add(textAreaPanel);
+                textAreaPanel.setVisible(true);
+                frame.setResizable(false);
+                frame.setVisible(true);
+            }
+        });
 
         JMenuItem aboutItem = new JMenuItem("About");
         infoMenu.add(aboutItem);
+        aboutItem.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent){
+                Dimension dimensionTextFrame = new Dimension(300, 180);
+                JFrame frame = new JFrame("О программе");
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(new Dimension(dimensionTextFrame));
+                frame.setMinimumSize(new Dimension(dimensionTextFrame));
+                frame.setMaximumSize(new Dimension(dimensionTextFrame));
+                frame.setPreferredSize(new Dimension(dimensionTextFrame));
+                JTextArea textArea = new JTextArea
+                        ("Здесь располагается информация об авторских правах", 3, 10);
+                textArea.setFont(font);
+                textArea.setLineWrap(true);
+                textArea.setWrapStyleWord(true);
+                JPanel textAreaPanel = new JPanel();
+                textAreaPanel.add(textArea);
+                textAreaPanel.add(new JScrollPane(textArea));
+                textAreaPanel.setSize(180,120);
+                frame.add(textAreaPanel);
+                textAreaPanel.setVisible(true);
+                frame.setResizable(false);
+                frame.setVisible(true);
+            }
+        });
 
         menuBar.add(infoMenu);
 
@@ -201,12 +255,12 @@ public class UserInterface {
         });
 
 
-        JButton buttonDigit = new JButton(",");
+        JButton buttonDigit = new JButton(".");
         buttonDigit.setFont(font);
         buttonDigit.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent){
-                textField.setText(textField.getText() + ",");
+                textField.setText(textField.getText() + ".");
             }
         });
 
@@ -349,6 +403,8 @@ public class UserInterface {
                 listData.add(textField.getText());
             }
         });
+
+
 
 
         panel.add(textField, "cell 0 0, w 270!, h 60!, span, wrap");
