@@ -94,7 +94,7 @@ public class UserInterface {
             public void actionPerformed(ActionEvent arg0)
             {
                 try{
-                    result = String.valueOf(operations.calculate(listData, operationType));
+                    result = operations.calculate(listData, operationType);
                     textField.setText(result);
 
                     // очистка списка после вывода результата и занесение в него результата, если с результатом будут дальнейшие операции
@@ -168,7 +168,6 @@ public class UserInterface {
                 textField.setText("");
                 operationType = "+";
                 listData.add(operationType);
-                textField.setText(listData.get(listData.size() - 1));
             }
         });
 
@@ -192,9 +191,9 @@ public class UserInterface {
         buttonPlusMinus.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent){
-                int sign = Integer.parseInt(listData.get(listData.size() - 1));
+                double sign = Double.parseDouble(listData.get(listData.size() - 1));
                 sign = -1 * sign;
-                String temp = Integer.toString(sign);
+                String temp = Double.toString(sign);
                 listData.remove(listData.size() - 1);
                 listData.add(temp);
                 textField.setText(listData.get(listData.size() - 1));
