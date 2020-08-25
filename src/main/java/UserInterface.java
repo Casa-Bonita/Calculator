@@ -11,8 +11,6 @@ public class UserInterface {
 
     private Dimension dimensionFrame;
     String operationType = "";
-    int number1 = 0;
-    int number2 = 0;
     String result = "";
     public JTextField textField = null;
     List<String> listData = new ArrayList<>();
@@ -98,6 +96,14 @@ public class UserInterface {
                 try{
                     result = String.valueOf(operations.calculate(listData, operationType));
                     textField.setText(result);
+
+                    // очистка списка после вывода результата и занесение в него результата, если с результатом будут дальнейшие операции
+                    operationType = "";
+                    for (int i = 0; i < listData.size(); i++) {
+                        listData.remove(i);
+                    }
+                    listData.add(result);
+                    result = "";
                 }
                 catch(ArithmeticException ex){
                     System.out.println("Can not divide by zero ");
@@ -171,18 +177,18 @@ public class UserInterface {
         buttonDeleteLast.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent){
-                if (number1 != 0 & number2 == 0){
-                    String temp = Integer.toString(number1);
-                    temp = temp.substring(0, temp.length() - 1);
-                    textField.setText(temp);
-                    number1 = Integer.valueOf(temp);
-                }
-                else{
-                    String temp = Integer.toString(number2);
-                    temp = temp.substring(0, temp.length() - 1);
-                    textField.setText(temp);
-                    number2 = Integer.valueOf(temp);
-                }
+//                if (number1 != 0 & number2 == 0){
+//                    String temp = Integer.toString(number1);
+//                    temp = temp.substring(0, temp.length() - 1);
+//                    textField.setText(temp);
+//                    number1 = Integer.valueOf(temp);
+//                }
+//                else{
+//                    String temp = Integer.toString(number2);
+//                    temp = temp.substring(0, temp.length() - 1);
+//                    textField.setText(temp);
+//                    number2 = Integer.valueOf(temp);
+//                }
             }
         });
 
@@ -192,16 +198,12 @@ public class UserInterface {
         buttonPlusMinus.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent){
-                if (number1 != 0 & number2 == 0){
-                    number1 = -1 * number1;
-                    String temp = Integer.toString(number1);
-                    textField.setText(temp);
-                }
-                else{
-                    number2 = -1 * number2;
-                    String temp = Integer.toString(number2);
-                    textField.setText(temp);
-                }
+                int sign = Integer.parseInt(listData.get(listData.size() - 1));
+                sign = -1 * sign;
+                String temp = Integer.toString(sign);
+                listData.remove(listData.size() - 1);
+                listData.add(temp);
+                textField.setText(listData.get(listData.size() - 1));
             }
         });
 
@@ -389,8 +391,6 @@ public class UserInterface {
     public void clearAll (){
         textField.setText("");
         operationType = "";
-        number1 = 0;
-        number2 = 0;
         result = "";
         for (int i = 0; i < listData.size(); i++) {
             listData.remove(i);
