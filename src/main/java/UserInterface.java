@@ -14,6 +14,7 @@ public class UserInterface {
     String result = "";
     public JTextField textField = null;
     List<String> listData = new ArrayList<>();
+    String calculatorType = "";
 
     Operations operations = new Operations();
 
@@ -39,7 +40,6 @@ public class UserInterface {
         JPanel panel = new JPanel();
         panel.setLayout(layout);
 
-
         Font font = new Font("Calibri", Font.BOLD, 30);
 
         textField = new JTextField();
@@ -55,19 +55,25 @@ public class UserInterface {
         JMenuItem classic = new JMenuItem("Classic");
         calculatorItem.add(classic);
         calculatorItem.addSeparator();
+        classic.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent){
+                calculatorType = "classic";
+            }
+        });
+
+
         JMenuItem color = new JMenuItem("Color");
         calculatorItem.add(color);
+        color.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent){
+                calculatorType = "color";
+            }
+        });
 
         mainMenu.add(calculatorItem);
         mainMenu.addSeparator();
-
-//        JMenuItem openMenu = new JMenuItem("Open");
-//        mainMenu.add(openMenu);
-//        mainMenu.addSeparator();
-//
-//        JMenuItem saveMenu = new JMenuItem("Save");
-//        mainMenu.add(saveMenu);
-//        mainMenu.addSeparator();
 
         JMenuItem exitMenu = new JMenuItem("Exit");
         mainMenu.add(exitMenu);
