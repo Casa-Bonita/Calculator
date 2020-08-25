@@ -48,7 +48,7 @@ public class UserInterface {
 
         JMenuBar menuBar = new JMenuBar();
 
-        JMenu fileMenu = new JMenu("File");
+        JMenu mainMenu = new JMenu("Main");
 
         JMenu calculatorItem = new JMenu("Calculator");
 
@@ -58,21 +58,27 @@ public class UserInterface {
         JMenuItem color = new JMenuItem("Color");
         calculatorItem.add(color);
 
-        fileMenu.add(calculatorItem);
-        fileMenu.addSeparator();
+        mainMenu.add(calculatorItem);
+        mainMenu.addSeparator();
 
-        JMenuItem openMenu = new JMenuItem("Open");
-        fileMenu.add(openMenu);
-        fileMenu.addSeparator();
-
-        JMenuItem saveMenu = new JMenuItem("Save");
-        fileMenu.add(saveMenu);
-        fileMenu.addSeparator();
+//        JMenuItem openMenu = new JMenuItem("Open");
+//        mainMenu.add(openMenu);
+//        mainMenu.addSeparator();
+//
+//        JMenuItem saveMenu = new JMenuItem("Save");
+//        mainMenu.add(saveMenu);
+//        mainMenu.addSeparator();
 
         JMenuItem exitMenu = new JMenuItem("Exit");
-        fileMenu.add(exitMenu);
+        mainMenu.add(exitMenu);
+        exitMenu.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent actionEvent){
+                System.exit(0);
+            }
+        });
 
-        menuBar.add(fileMenu);
+        menuBar.add(mainMenu);
 
         JMenu infoMenu = new JMenu("Info");
 
