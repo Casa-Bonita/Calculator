@@ -168,6 +168,7 @@ public class UserInterface {
                 textField.setText("");
                 operationType = "+";
                 listData.add(operationType);
+                textField.setText(listData.get(listData.size() - 1));
             }
         });
 
@@ -177,18 +178,11 @@ public class UserInterface {
         buttonDeleteLast.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent actionEvent){
-//                if (number1 != 0 & number2 == 0){
-//                    String temp = Integer.toString(number1);
-//                    temp = temp.substring(0, temp.length() - 1);
-//                    textField.setText(temp);
-//                    number1 = Integer.valueOf(temp);
-//                }
-//                else{
-//                    String temp = Integer.toString(number2);
-//                    temp = temp.substring(0, temp.length() - 1);
-//                    textField.setText(temp);
-//                    number2 = Integer.valueOf(temp);
-//                }
+                String temp = listData.get(listData.size() - 1);
+                temp = temp.substring(0, temp.length() - 1);
+                listData.remove(listData.size() - 1);
+                listData.add(temp);
+                textField.setText(temp);
             }
         });
 
