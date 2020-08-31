@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.Font;
 import java.awt.event.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -41,6 +44,7 @@ public class UserInterface {
         panel.setLayout(layout);
 
         Font font = new Font("Calibri", Font.BOLD, 30);
+        Font fontTextArea = new Font("Calibri", Font.PLAIN, 20);
 
         textField = new JTextField();
         textField.setText("");
@@ -101,12 +105,31 @@ public class UserInterface {
                 frame.setMinimumSize(new Dimension(dimensionTextFrame));
                 frame.setMaximumSize(new Dimension(dimensionTextFrame));
                 frame.setPreferredSize(new Dimension(dimensionTextFrame));
-                JTextArea textArea = new JTextArea
-                        ("Здесь располагается текст лицензионного соглашения, Здесь располагается текст лицензионного соглашения," +
-                        " Здесь располагается текст лицензионного соглашения, Здесь располагается текст лицензионного соглашения, " +
-                                "Здесь располагается текст лицензионного соглашения, Здесь располагается текст лицензионного соглашения," +
-                                " Здесь располагается текст лицензионного соглашения, Здесь располагается текст лицензионного соглашения,", 11, 18);
-                textArea.setFont(font);
+
+                String line = "";
+                String pathFile = "src/main/java/license.txt";
+                BufferedReader br = null;
+                List<String> listLicense = new ArrayList<>();
+                try{
+                    br = new BufferedReader(new FileReader(pathFile));
+                    line = br.readLine();
+                    while(line != null){
+                        listLicense.add(line);
+                        line = br.readLine();
+                    }
+                    br.close();
+                }catch (IOException ex){
+                    ex.printStackTrace();
+                }
+
+                line = "";
+                for (int i = 0; i < listLicense.size(); i++) {
+                    line = line + listLicense.get(i);
+                }
+
+                JTextArea textArea = new JTextArea(line, 17,28);
+
+                textArea.setFont(fontTextArea);
                 textArea.setTabSize(10);
                 textArea.setLineWrap(true);
                 textArea.setWrapStyleWord(true);
